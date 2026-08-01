@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+@theme {
+  --color-surface: #fff8f7;
+  --color-surface-container: #ffe9e7;
+  --color-primary: #b0004a;
+  --color-primary-container: #d81b60;
+  --color-secondary: #ab2c5d;
+  --color-secondary-container: #fd6c9c;
+  --color-tertiary: #735c00;
+  --color-tertiary-container: #cca730;
+  --color-on-surface: #3d0506;
+  --color-on-surface-variant: #5a4044;
+  --color-outline: #8e6f74;
+  --color-outline-variant: #e3bdc3;
+
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Quicksand', sans-serif;
+  --font-handwriting: 'Caveat', cursive;
+}
+
+body {
+  background-color: #fff8f7;
+  color: #3d0506;
+  font-family: 'Quicksand', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, .font-serif-title {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-handwriting {
+  font-family: 'Caveat', cursive;
+}
+
+/* Custom Utilities & Animations */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+.material-symbols-outlined.filled {
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* Glassmorphism */
+.glass-blush {
+  background: rgba(255, 218, 215, 0.55);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.glass-nav {
+  background: rgba(253, 108, 156, 0.35);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Polaroid Container */
+.polaroid-frame {
+  background: #ffffff;
+  padding: 14px 14px 44px 14px;
+  box-shadow: 0px 12px 35px rgba(74, 14, 14, 0.09), 0px 2px 6px rgba(0, 0, 0, 0.04);
+  border-radius: 6px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.polaroid-frame:hover {
+  transform: scale(1.03) translateY(-4px) !important;
+  box-shadow: 0px 20px 45px rgba(74, 14, 14, 0.15), 0px 4px 12px rgba(0, 0, 0, 0.06);
+  z-index: 20;
+}
+
+/* 3D Flip Card */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Animations */
+@keyframes floatUp {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+  50% { opacity: 0.7; }
+  100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
+
+.animate-float-up {
+  animation: floatUp 12s linear infinite;
+}
+
+@keyframes bounceHeart {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
+
+.bouncing-heart {
+  animation: bounceHeart 2.2s infinite;
+}
+
+@keyframes pulseSlow {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.85; }
+}
+
+.music-playing {
+  animation: pulseSlow 2s infinite ease-in-out;
+}
