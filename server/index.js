@@ -23,17 +23,17 @@ app.use((req, res, next) => {
 // API Routes
 app.use('/api', apiRoutes);
 
-// Serve static assets from frontend/dist
-const frontendDistPath = path.join(__dirname, '../frontend/dist');
-app.use(express.static(frontendDistPath));
+// Serve static assets from ./dist
+const distPath = path.join(__dirname, '../dist');
+app.use(express.static(distPath));
 
 // Fallback to index.html for client-side routing
 app.get('*', (req, res, next) => {
   if (req.url.startsWith('/api')) return next();
-  res.sendFile(path.join(frontendDistPath, 'index.html'), (err) => {
+  res.sendFile(path.join(distPath, 'index.html'), (err) => {
     if (err) {
       res.status(200).json({
-        message: '💖 Digital Love Journal API running. Build frontend dist to see UI.'
+        message: '💖 Digital Love Journal API running. Run npm run build to generate dist.'
       });
     }
   });
