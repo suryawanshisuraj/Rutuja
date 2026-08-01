@@ -1,3 +1,14 @@
-import app from '../server/index.js';
+import express from 'express';
+import cors from 'cors';
+import apiRoutes from '../server/routes/api.js';
+
+const app = express();
+
+app.use(cors());
+app.use(express.json());
+
+// API routes
+app.use('/api', apiRoutes);
+app.use('/', apiRoutes);
 
 export default app;
